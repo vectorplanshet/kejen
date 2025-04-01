@@ -115,10 +115,10 @@
         }
     
         .red-id {
-            color: rgb(0, 0, 0);
+            color: rgb(255, 0, 0);
         }
         .blue-id {
-            color: #000000;
+            color: #006aff; /* Синий цвет для текста */
         }
         
 
@@ -1121,18 +1121,10 @@ fetch("front.json")
         let opacity = 1; // По умолчанию непрозрачность для "неизвестно"
         let fillOpacity = 1; // По умолчанию заливка непрозрачная
 
-        if (feature.properties.name === 'Освобождено') {
+        if (feature.properties.name === 'Багатокутник 4') {
           color = '#0f9d58'
-          opacity = 0.0; // Прозрачность границы
-          fillOpacity = 0.15; // Прозрачность заливки
-        } else if (feature.properties.name === 'Оккупировано') {
-          color = '#a52714'; // Цвет для "Оккупировано"
-          opacity = 0.0
-          fillOpacity = 0.25// Заливка полупрозрачная
-        } else if (feature.properties.name === 'Неизвестно') {
-          color = '#bdbdbd'; // Цвет для "Неизвестно"
-          opacity = 0.1; // Прозрачность границы
-          fillOpacity = 0.1; // Прозрачность заливки
+          opacity = 0.15; // Прозрачность границы
+          fillOpacity = 0.0; // Прозрачность заливки
         }
 
         // Возвращаем стиль с прозрачностью
