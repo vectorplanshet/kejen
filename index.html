@@ -1104,6 +1104,8 @@ function getRlsForObject(objectId, iconUrl) {
     return rlsOptions[randomIndex];
 }
 
+let touchTimer;
+
 map.on('contextmenu', function (e) {
     const coords = `${e.latlng.lat}, ${e.latlng.lng}`;
     navigator.clipboard.writeText(coords).then(() => {
@@ -1112,6 +1114,27 @@ map.on('contextmenu', function (e) {
         console.error('Ошибка копирования координат:', err);
     });
 });
+
+map.on('touchstart', function (e) {
+    // Запускаем таймер, чтобы определить долгий клик
+    touchTimer = setTimeout(() => {
+        const latlng = e.latlng;
+        const coords = `${latlng.lat}, ${latlng.lng}`;
+
+        navigator.clipboard.writeText(coords).then(() => {
+            alert(`Координаты скопированы: ${coords}`);
+        }).catch(err => {
+            console.error('Ошибка копирования координат:', err);
+        });
+    }, 800); // Время задержки в миллисекундах (800 мс = долгий клик)
+
+});
+
+map.on('touchend', function (e) {
+    // Если палец поднят до завершения задержки, отменяем таймер
+    clearTimeout(touchTimer);
+});
+
 fetch("front.json")
   .then(response => response.json())
   .then(data => {
