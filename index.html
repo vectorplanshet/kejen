@@ -115,7 +115,7 @@
         }
     
         .red-id {
-            color: rgb(255, 0, 0);
+            color: #dd0347;
         }
         .blue-id {
             color: #006aff; /* Синий цвет для текста */
@@ -127,7 +127,7 @@
 .red-id .r-container,
 .red-id .rls-container 
 .red-id .icon-container {
-    color: rgb(255, 0, 0);
+    color: #dd0347;
 }
 
 .blue-id .label-container,
@@ -152,44 +152,44 @@
             line-height: 15px;
         }
         .label-container {
-            font-size: 14px;
-            font-weight: 500;
+            font-size: 13px;
+            font-weight: 600;
                     font-family: 'Roboto', sans-serif;
  
             -webkit-text-stroke-color: black;
         }
         .r-container {
-            font-size: 14px;
-            font-weight: 500;
+            font-size: 13px;
+            font-weight: 600;
             font-family: 'Roboto', sans-serif;
  
         }
         .rls1-container {
-            font-size: 14px;
+            font-size: 13px;
             font-family: 'Roboto', sans-serif;
  
             display: flex;
     flex-direction: column;
     justify-content: center;
-    font-weight: 500;
+    font-weight: 600;
    }
         .rls-container {
-            font-size: 14px;
+            font-size: 13px;
             display: flex;
             font-family: 'Roboto', sans-serif;
-            font-weight: 500;
+            font-weight: 600;
     flex-direction: column;
     justify-content: center;
    }
         .label1-container {
-            font-size: 14px;
+            font-size: 13px;
             font-family: 'Roboto', sans-serif;
-            font-weight: 450;
+            font-weight: 600;
             -webkit-text-stroke-color: black;
         }
         .r1-container {
-            font-size: 14px;
-            font-weight: 450;
+            font-size: 13px;
+            font-weight: 600;
             font-family: 'Roboto', sans-serif;
  
         }
@@ -283,6 +283,18 @@
         }
         button#alert-button:hover {
             background: #c9302c;
+        }
+        @media (max-width: 768px) {
+            button#alert-button {
+            background: #ff0800;
+            color: white;
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+            width: 100px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
         }
         #overlay {
     position: absolute;
@@ -383,6 +395,7 @@
         #submitButton:hover {
             background: #9d9d9d;
         }
+        
     </style>
 </head>
 <body>
@@ -815,7 +828,7 @@ updateOverlayFilter();
     } else if (speed >= 1000 && speed <= 1001) {
         iconUrl = 'x101.png';
         shiftedClass = 'shifted-info-container';
-    } else if (speed >= 898 && speed <= 899) {
+    } else if (speed >= 450 && speed <= 459) {
         iconUrl = 'kab.png';
     } else if (speed >= 11024 && speed <= 11025) {
         shiftedClass = 'shifted-info-container';
@@ -935,6 +948,7 @@ updateOverlayFilter();
              <div class="info-container ${shiftedClass} ${shiftedClasss}">
                 <span class="label-container ${iconClass}">${objectId}р</span>
                  <span class="r-container ${iconClass}">ПП·</span>
+                 <span class="rls-container ${iconClass}">ㅤ</span> <!-- РЛС --> 
             </div>
         </div>
     `;
